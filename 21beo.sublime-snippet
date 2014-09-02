@@ -1,0 +1,78 @@
+<snippet>
+	<content><![CDATA[
+<?php
+
+namespace \Models\Entity;
+
+class $1EO extends \Models\Entity\AbstractEntity {
+
+	/**
+	 * TODO: insert public fields or arrays for this EO
+	 */
+
+
+	 /**
+	  * Default constructor for $1EO
+	  * @return {$1EO} 		New instance of $1EO
+	  */
+    public function __construct() {
+        \$argv = func_get_args();
+        switch (func_num_args()) {
+            case 1:
+            self::__populate(\$argv[0]);
+            break;
+        }
+    }
+
+    protected function __populate(\$data) {
+    	/**
+    	 * TODO: Use checks to map db column names to $1EO field names
+    	 */
+
+        if (isset(\$data['id'])) {
+            \$this->id = \$data['id'];
+        }
+
+        //...
+
+    }
+
+    public function getId()
+    {
+        return \$this->id;
+    }
+    
+    public function setId(\$id)
+    {
+        \$this->id = \$id;
+        return \$this;
+    }	
+
+    //TODO: add other getters/setters
+
+    /**
+     * 	TODO: if $1EO contains array fields, add special checks and 
+     *	functions, e.g.:
+     */
+    //	public function addAttribute(\Models\Entity\xxxEO $newAttribute)
+    //	{
+    //	   	\$this->attributes[\$newAttribute->id] = \$newAttribute;
+    //	}
+    //	
+    //	public function setAttributes(array \$attributes)
+    //	{	
+    //	 	if (is_array(\$attributes))
+    //	     	\$this->attributes = \$attributes;
+    //	  return \$this;
+	//	}
+
+}
+
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>21beo</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

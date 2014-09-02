@@ -1,0 +1,107 @@
+<snippet>
+	<content><![CDATA[
+<?php
+
+namespace Data\Mapper;
+
+class $1Mapper extends AbstractDataMapper {
+
+    const Table$1 = '$2';
+
+    /**
+     * Default Mapper Constructor sets a default table
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        \$this->entityTable = self::Table$1;
+    }
+
+    /**
+     * Retrieves unique $1EO object
+     * @param  int id			identifier for this $1
+     * @return $1EO 			unique or collection of $1EO
+     */
+    
+    public function find(\$id) {
+    	\$sql = "$3YOUR SELECT STATEMENT GOES HERE";
+
+   	 	\$array$1 = \$this->prepare(\$sql)->execute(array(':id'=>\$id))->fetch();
+
+		return new \Models\Entity\\$1EO(\$array$1);
+		
+    }
+
+    /**
+     * Retrieves all $1EO objects that match the condition set
+     * @param  array()	\$conditions			identifier for this $1
+     * @return array()							a collection of $1EO for this conditions
+     */
+    
+    public function findAll(\$conditions) {
+
+    	/**
+    	 *  If conditions is NULL/empty; return all. Otherwise, check for specific conditions 
+    	 *	and prepare collection
+    	 */
+    	
+    	\$bind = array();
+    	\$collection = array();
+    	\$sql = "YOUR SELECT STATEMENT GOES HERE";
+
+    	/**
+    	 * TODO: check for conditions and build query statement
+    	 */
+
+    	\$rs = \$this->prepare(\$sql)->execute(\$bind);
+
+		while (\$row = \$rs->fetch()){
+			\$collection$1[] = new \Models\Entity\\$1EO(\$row);
+		}
+
+		return \$collection$1;
+    }
+
+    /**
+     * Inserts or updates an $1EO object; if $1EO->id is set, updates
+     * @param  $1EO \$objectEO				$1EO object to insert/update
+     * @return int 							number of affected rows
+     */
+    public function store(\$obj$1){
+
+    	if (\$obj$1 === null)
+    		\$sql = "YOUR INSERT STATEMENT GOES HERE";
+    	else
+    		\$sql = "YOUR UPDATE STATEMENT GOES HERE";
+
+
+    	\$bind = array();
+    	/**
+    	 * TODO: Map \$obj$1 to statement placeholders
+    	 */
+    	
+    	 // TODO: You may need to update several tables or call other Mappers
+
+    	return \$this->prepare(\$sql)->execute(\$bind)->countAffectedRows();
+    }
+
+    /**
+     * Deletes or archives this $1EO object
+     * @param  $1EO \$id 					identifier for the element to delete/archive
+     * @return int     						number of affected rows
+     */
+    public function drop(\$id){
+
+    	//assume archive only
+    	\$sql = "YOUR UPDATE STATEMENT GOES HERE";
+    	return \$this->prepare(\$sql)->execute(array(':id'=>\$id))->countAffectedRows();
+    }
+
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>21bmapper</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.php</scope> -->
+</snippet>
